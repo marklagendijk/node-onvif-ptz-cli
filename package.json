@@ -1,0 +1,18 @@
+{
+  "name": "onvif-cli",
+  "version": "0.0.1",
+  "description": "WIP",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "onvif",
+    "cli",
+    "ptz"
+  ],
+  "author": "Mark Lagendijk <mark@lagendijk.nl>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "node-onvif": "^0.1.7"
+  }
+}
