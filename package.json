@@ -2,7 +2,10 @@
   "name": "onvif-ptz-cli",
   "version": "0.0.1",
   "description": "WIP",
-  "main": "index.js",
+  "bin": {
+    "onvif-ptz": "bin/cli.js"
+  },
+  "main": "bin/cli.js",
   "scripts": {},
   "keywords": [
     "onvif",
@@ -13,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.15",
-    "node-onvif": "^0.1.7"
+    "node-onvif": "^0.1.7",
+    "yargs": "^15.3.1"
   }
 }
