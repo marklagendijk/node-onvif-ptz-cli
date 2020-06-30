@@ -1,5 +1,5 @@
 {
-  "name": "onvif-cli",
+  "name": "onvif-ptz-cli",
   "version": "0.0.1",
   "description": "WIP",
   "main": "index.js",
