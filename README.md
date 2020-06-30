@@ -1,2 +1,2 @@
-# node-onvif-cli
+# node-onvif-ptz-cli
 WIP
