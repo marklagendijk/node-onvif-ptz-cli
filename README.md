@@ -41,4 +41,85 @@ Examples:
   onvif-ptz move --baseUrl=http://192.168.0.123:8080 -u=admin -p=admin -x=0.01 -y=0.02 -z=0.03      Move the camera 0.01 to the right, 0.02 to the top and zoom in 0.03.
   onvif-ptz get-presets --baseUrl=http://192.168.0.123 -u=admin -p=admin                            List all camera presets.
   onvif-ptz set-preset --baseUrl=http://192.168.0.123 -u=admin -p=admin --preset=1 --name=Overview  Create a preset with preset token 1 and name Overview.
+```
+
+#### goto-preset
+```
+onvif-ptz goto-preset
+
+Move the camera to a preset.
+
+Options:
+  --help          Show help  [boolean]
+  --version       Show version number  [boolean]
+  --baseUrl       The baseUrl of the camera.  [string] [required]
+  --path          The onvif path of the camera.  [string] [default: "/onvif/device_service"]
+  --username, -u  The username of the camera.  [string] [required]
+  --password, -p  The password of the camera.  [string] [required]
+  --preset        The preset which should be loaded.  [string] [required]
   ```
+
+#### goto-home
+```
+onvif-ptz goto-home
+
+Move the camera to the home position.
+
+Options:
+  --help          Show help  [boolean]
+  --version       Show version number  [boolean]
+  --baseUrl       The baseUrl of the camera.  [string] [required]
+  --path          The onvif path of the camera.  [string] [default: "/onvif/device_service"]
+  --username, -u  The username of the camera.  [string] [required]
+  --password, -p  The password of the camera.  [string] [required]
+```
+
+#### move
+```
+onvif-ptz move
+
+Move relatively to the current camera position.
+
+Options:
+  --help          Show help  [boolean]
+  --version       Show version number  [boolean]
+  --baseUrl       The baseUrl of the camera.  [string] [required]
+  --path          The onvif path of the camera.  [string] [default: "/onvif/device_service"]
+  --username, -u  The username of the camera.  [string] [required]
+  --password, -p  The password of the camera.  [string] [required]
+  -x              Movement on the x-axis. Left: between -1 and 0. Right: between 0 and 1. Optionally add ':NUMBER' for speed (between 0 and 1).  [string] [default: "0"]
+  -y              Movement on the y-axis. Down: between -1 and 0. Up: between 0 and 1. Optionally add ':NUMBER' for speed (between 0 and 1).  [string] [default: "0"]
+  -z              Movement on the z-axis (zoom). Zoom out: between -1 and 0. Zoom in: between 0 and 1. Optionally add ':NUMBER' for speed (between 0 and 1).  [string] [default: "0"]
+```
+
+#### get-presets
+```
+onvif-ptz get-presets
+
+List all camera presets. Note: for some cameras the ONVIF presets are separate from the normal presets. If that is the case, you may have to re-create your presets using the set-preset command.
+
+Options:
+  --help          Show help  [boolean]
+  --version       Show version number  [boolean]
+  --baseUrl       The baseUrl of the camera.  [string] [required]
+  --path          The onvif path of the camera.  [string] [default: "/onvif/device_service"]
+  --username, -u  The username of the camera.  [string] [required]
+  --password, -p  The password of the camera.  [string] [required]
+```
+
+#### set-preset
+```
+onvif-ptz set-preset
+
+Store the current location/settings in a preset.
+
+Options:
+  --help          Show help  [boolean]
+  --version       Show version number  [boolean]
+  --baseUrl       The baseUrl of the camera.  [string] [required]
+  --path          The onvif path of the camera.  [string] [default: "/onvif/device_service"]
+  --username, -u  The username of the camera.  [string] [required]
+  --password, -p  The password of the camera.  [string] [required]
+  --preset        The token of the preset. Usually just a number.  [string] [required]
+  --name          The name of the preset.  [string] [required]
+```
