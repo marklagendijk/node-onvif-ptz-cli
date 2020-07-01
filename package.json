@@ -1,7 +1,7 @@
 {
   "name": "onvif-ptz-cli",
-  "version": "0.0.1",
-  "description": "WIP",
+  "version": "0.6.0",
+  "description": "Node.js cli tool for controlling PTZ cameras via the ONVIF protocol.",
   "bin": {
     "onvif-ptz": "bin/cli.js"
   },
@@ -10,6 +10,7 @@
   "keywords": [
     "onvif",
     "cli",
+    "camera",
     "ptz"
   ],
   "author": "Mark Lagendijk <mark@lagendijk.nl>",

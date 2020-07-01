@@ -114,7 +114,7 @@ const argv = require('yargs')
             path: argv.path,
             username: argv.username,
             password: argv.password
-        })
+        });
         switch (command) {
             case 'goto-preset':
                 await ptz.gotoPreset(device, {
