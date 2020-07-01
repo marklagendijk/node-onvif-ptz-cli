@@ -1,8 +1,9 @@
-# node-onvif-ptz-cli
+# node-onvif-ptz-cli [![GitHub license](https://img.shields.io/github/license/marklagendijk/node-onvif-ptz-cli)](https://github.com/marklagendijk/node-onvif-ptz-cli/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/onvif-ptz-cli)](https://www.npmjs.com/package/onvif-ptz-cli) [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/marklagendijk/onvif-ptz-cli)](https://hub.docker.com/r/marklagendijk/onvif-ptz-cli/builds) [![Docker Pulls](https://img.shields.io/docker/pulls/marklagendijk/onvif-ptz-cli)](https://hub.docker.com/r/marklagendijk/onvif-ptz-cli)
 
 ## Installation
 1. Install Node.js 12.x or higher ([Windows](https://nodejs.org/en/download/current/) | [Linux](https://github.com/nodesource/distributions#debinstall) | [OSx](https://nodejs.org/en/download/current/)).
 2. `npm i -g onvif-ptz-cli`
+3. Run `onvif-ptz --help` to show the documentation. 
 
 ## CLI Documenation
 ### Environment variables
