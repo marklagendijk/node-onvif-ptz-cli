@@ -11,7 +11,7 @@
 sudo docker run \
  --name onvif-ptz \
  --rm \
-  marklagendijk/onvif-ptz-cli goto-preset \
+ marklagendijk/onvif-ptz-cli goto-preset \
  --baseUrl=http://192.168.0.123 \
  -u=admin \
  -p=admin \
