@@ -2,6 +2,7 @@
 const _ = require('lodash');
 const { createDevice } = require('../lib/onvif/device');
 const ptz = require('../lib/onvif/ptz');
+const { printTable } = require('../lib/table');
 
 const argv = require('yargs')
     .scriptName('')
@@ -130,20 +131,26 @@ const argv = require('yargs')
                 const z = argv.z.split(':');
                 await ptz.relativeMove(device, {
                     movement: {
-                        x: x[0],
-                        y: y[0],
-                        z: z[0],
+                        x: parseFloat(x[0]),
+                        y: parseFloat(y[0]),
+                        z: parseFloat(z[0]),
                     },
                     speed: {
-                        x: x[1] || 1,
-                        y: y[1] || 1,
-                        z: z[1] || 1
+                        x: parseFloat(x[1] || 1),
+                        y: parseFloat(y[1] || 1),
+                        z: parseFloat(z[1] || 1)
                     }
                 });
                 break;
             case 'get-presets':
-                const presets = await ptz.getPresets(device);
-                console.log(presets);
+                const presets = (await ptz.getPresets(device)).map(item => ({
+                    token: _.get(item, '$.token'),
+                    name: item.Name,
+                    x: _.get(item, 'PTZPosition.PanTilt.$.x'),
+                    y: _.get(item, 'PTZPosition.PanTilt.$.y'),
+                    z: _.get(item, 'PTZPosition.Zoom.$.x')
+                }));
+                printTable(presets);
                 break;
             case 'set-preset':
                 await ptz.setPreset(device, {
