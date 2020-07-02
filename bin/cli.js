@@ -65,7 +65,6 @@ const argv = require('yargs')
         },
         name: {
             describe: 'The name of the preset.',
-            demandOption: true,
             type: 'string'
         }
     })
