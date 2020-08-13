@@ -1,12 +1,15 @@
 # node-onvif-ptz-cli [![GitHub license](https://img.shields.io/github/license/marklagendijk/node-onvif-ptz-cli)](https://github.com/marklagendijk/node-onvif-ptz-cli/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/onvif-ptz-cli)](https://www.npmjs.com/package/onvif-ptz-cli) [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/marklagendijk/onvif-ptz-cli)](https://hub.docker.com/r/marklagendijk/onvif-ptz-cli/builds) [![Docker Pulls](https://img.shields.io/docker/pulls/marklagendijk/onvif-ptz-cli)](https://hub.docker.com/r/marklagendijk/onvif-ptz-cli)
 
 ## Installation
+
 ### NPM
+
 1. Install Node.js 12.x or higher ([Windows](https://nodejs.org/en/download/current/) | [Linux](https://github.com/nodesource/distributions#debinstall) | [OSx](https://nodejs.org/en/download/current/)).
 2. `npm i -g onvif-ptz-cli`
-3. Run `onvif-ptz --help` to show the documentation. 
+3. Run `onvif-ptz --help` to show the documentation.
 
 ### Docker Run
+
 ```
 sudo docker run \
  --name onvif-ptz \
@@ -19,15 +22,19 @@ sudo docker run \
 ```
 
 ## CLI Documenation
+
 ### Environment variables
+
 All args can also be specified as environment variables, with the `ONVIF_` prefix. This is mostly useful for specifying the url and credentials, so you don't have to enter them for each command.
-```bash 
+
+```bash
 ONVIF_BASE_URL=http://192.168.0.123
 ONVIF_USERNAME=admin
 ONVIF_PASSWORD=admin
 ```
 
 ### Commands
+
 ```
 Usage: onvif-ptz <command>
 
@@ -58,6 +65,7 @@ Examples:
 ```
 
 #### goto-preset
+
 ```
 onvif-ptz goto-preset
 
@@ -71,9 +79,10 @@ Options:
   --username, -u  The username of the camera.  [string] [required]
   --password, -p  The password of the camera.  [string] [required]
   --preset        The preset which should be loaded.  [string] [required]
-  ```
+```
 
 #### goto-home
+
 ```
 onvif-ptz goto-home
 
@@ -89,6 +98,7 @@ Options:
 ```
 
 #### move
+
 ```
 onvif-ptz move
 
@@ -107,6 +117,7 @@ Options:
 ```
 
 #### get-presets
+
 ```
 onvif-ptz get-presets
 
@@ -122,6 +133,7 @@ Options:
 ```
 
 #### set-preset
+
 ```
 onvif-ptz set-preset
 

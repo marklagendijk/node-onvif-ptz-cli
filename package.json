@@ -6,7 +6,6 @@
     "onvif-ptz": "bin/cli.js"
   },
   "main": "bin/cli.js",
-  "scripts": {},
   "keywords": [
     "onvif",
     "cli",
@@ -15,11 +14,30 @@
   ],
   "author": "Mark Lagendijk <mark@lagendijk.nl>",
   "license": "MIT",
+  "scripts": {
+    "lint": "prettier --write . && eslint --cache --fix ."
+  },
   "dependencies": {
     "chalk": "^4.1.0",
     "lodash": "^4.17.15",
     "node-onvif": "^0.1.7",
     "table": "^5.4.6",
     "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": "prettier --write",
+    "*.js": "eslint --cache --fix"
   }
 }
