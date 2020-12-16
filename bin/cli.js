@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 const _ = require("lodash");
+const fs = require("fs");
 const { createDevice } = require("../lib/onvif/device");
 const ptz = require("../lib/onvif/ptz");
 const { printTable } = require("../lib/table");
@@ -74,6 +75,17 @@ const argv = require("yargs")
       type: "string",
     },
   })
+  .command("fetch-snapshot", "Fetch a snapshot and safe it to disk.", {
+    file: {
+      describe: "The output path for the snapshot jpg file.",
+      default: "snapshot.jpg",
+      type: "string",
+    },
+    name: {
+      describe: "The name of the preset.",
+      type: "string",
+    },
+  })
   .example(
     "onvif-ptz goto-preset --baseUrl=http://192.168.0.123 -u=admin -p=admin --preset=1",
     'Load preset "1".'
@@ -121,19 +133,22 @@ const argv = require("yargs")
     });
     switch (command) {
       case "goto-preset":
-        gotoPresetCommand(device, argv);
+        await gotoPresetCommand(device, argv);
         break;
       case "goto-home":
-        gotoHomePositionCommand(device);
+        await gotoHomePositionCommand(device);
         break;
       case "move":
-        moveCommand(device, argv);
+        await moveCommand(device, argv);
         break;
       case "get-presets":
-        getPresetsCommand(device);
+        await getPresetsCommand(device);
         break;
       case "set-preset":
-        setPresetCommand(device, argv);
+        await setPresetCommand(device, argv);
+        break;
+      case "fetch-snapshot":
+        await fetchSnapshotCommand(device, argv);
         break;
     }
   } catch (e) {
@@ -185,4 +200,9 @@ async function setPresetCommand(device, argv) {
     preset: argv.preset,
     name: argv.name,
   });
+}
+
+async function fetchSnapshotCommand(device, argv) {
+  const result = await device.fetchSnapshot();
+  fs.writeFileSync(argv.file, result.body, { encoding: "binary" });
 }
