@@ -1,4 +1,4 @@
-# node-onvif-ptz-cli [![GitHub license](https://img.shields.io/github/license/marklagendijk/node-onvif-ptz-cli)](https://github.com/marklagendijk/node-onvif-ptz-cli/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/onvif-ptz-cli)](https://www.npmjs.com/package/onvif-ptz-cli) [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/marklagendijk/onvif-ptz-cli)](https://hub.docker.com/r/marklagendijk/onvif-ptz-cli/builds) [![Docker Pulls](https://img.shields.io/docker/pulls/marklagendijk/onvif-ptz-cli)](https://hub.docker.com/r/marklagendijk/onvif-ptz-cli)
+# node-onvif-ptz-cli [![GitHub license](https://img.shields.io/github/license/marklagendijk/node-onvif-ptz-cli)](https://github.com/marklagendijk/node-onvif-ptz-cli/blob/master/LICENSE) [![npm](https://img.shields.io/npm/v/onvif-ptz-cli)](https://www.npmjs.com/package/onvif-ptz-cli) [![Docker Pulls](https://img.shields.io/docker/pulls/marklagendijk/onvif-ptz-cli)](https://hub.docker.com/r/marklagendijk/onvif-ptz-cli)
 
 ## Installation
 
@@ -9,6 +9,7 @@
 3. Run `onvif-ptz --help` to show the documentation.
 
 ### Docker Run
+Note: the Docker image is a multiarch image. So it will also work on Raspberry Pi's.
 
 ```
 sudo docker run \
