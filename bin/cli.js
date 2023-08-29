@@ -1,11 +1,13 @@
 #! /usr/bin/env node
-const _ = require("lodash");
-const fs = require("fs");
-const { createDevice } = require("../lib/onvif/device");
-const ptz = require("../lib/onvif/ptz");
-const { printTable } = require("../lib/table");
+import _ from "lodash";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
+import { printTable } from "../lib/table.js";
+import ptz from "../lib/onvif/ptz.js";
+import { createDevice } from "../lib/onvif/device.js";
+import fs from "fs";
 
-const argv = require("yargs")
+const argv = yargs(hideBin(process.argv))
   .scriptName("")
   .usage("Usage: onvif-ptz <command>")
   .options({
@@ -62,7 +64,7 @@ const argv = require("yargs")
   })
   .command(
     "get-presets",
-    "List all camera presets. Note: for some cameras the ONVIF presets are separate from the normal presets. If that is the case, you may have to re-create your presets using the set-preset command."
+    "List all camera presets. Note: for some cameras the ONVIF presets are separate from the normal presets. If that is the case, you may have to re-create your presets using the set-preset command.",
   )
   .command("set-preset", "Store the current location/settings in a preset.", {
     preset: {
@@ -88,35 +90,35 @@ const argv = require("yargs")
   })
   .example(
     "onvif-ptz goto-preset --baseUrl=http://192.168.0.123 -u=admin -p=admin --preset=1",
-    'Load preset "1".'
+    'Load preset "1".',
   )
   .example(
     "onvif-ptz goto-preset --baseUrl=http://192.168.0.123:8080 -u=admin -p=admin --preset=1",
-    'Load preset "1" on a camera that uses port 8080 as onvif port.'
+    'Load preset "1" on a camera that uses port 8080 as onvif port.',
   )
   .example(
     "onvif-ptz goto-home --baseUrl=http://192.168.0.123 -u=admin -p=admin",
-    "Move the camera to the home position."
+    "Move the camera to the home position.",
   )
   .example(
     "onvif-ptz move --baseUrl=http://192.168.0.123:8080 -u=admin -p=admin -x=0.01",
-    "Move the camera 0.01 to the right."
+    "Move the camera 0.01 to the right.",
   )
   .example(
     "onvif-ptz move --baseUrl=http://192.168.0.123:8080 -u=admin -p=admin -x=0.01:0.5",
-    "Move the camera 0.01 to the right with half speed."
+    "Move the camera 0.01 to the right with half speed.",
   )
   .example(
     "onvif-ptz move --baseUrl=http://192.168.0.123:8080 -u=admin -p=admin -x=0.01 -y=0.02 -z=0.03",
-    "Move the camera 0.01 to the right, 0.02 to the top and zoom in 0.03."
+    "Move the camera 0.01 to the right, 0.02 to the top and zoom in 0.03.",
   )
   .example(
     "onvif-ptz get-presets --baseUrl=http://192.168.0.123 -u=admin -p=admin",
-    "List all camera presets."
+    "List all camera presets.",
   )
   .example(
     "onvif-ptz set-preset --baseUrl=http://192.168.0.123 -u=admin -p=admin --preset=1 --name=Overview",
-    "Create a preset with preset token 1 and name Overview."
+    "Create a preset with preset token 1 and name Overview.",
   )
   .demandCommand()
   .env("ONVIF")

@@ -4,7 +4,7 @@
 
 ### NPM
 
-1. Install Node.js 12.x or higher ([Windows](https://nodejs.org/en/download/current/) | [Linux](https://github.com/nodesource/distributions#debinstall) | [OSx](https://nodejs.org/en/download/current/)).
+1. Install Node.js 18.x or higher ([Windows](https://nodejs.org/en/download/current/) | [Linux](https://github.com/nodesource/distributions#debinstall) | [OSx](https://nodejs.org/en/download/current/)).
 2. `npm i -g onvif-ptz-cli`
 3. Run `onvif-ptz --help` to show the documentation.
 
